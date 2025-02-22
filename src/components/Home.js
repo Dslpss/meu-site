@@ -414,7 +414,11 @@ const Home = () => {
       <CTASection>
         <CTAButton to="/projetos">Ver Projetos</CTAButton>
         <CTAButton to="/contato" $secondary>
-          Entre em Contato
+          // Adicione um arquivo netlify.toml na raiz do projeto
+          [[redirects]]
+            from = "/*"
+            to = "/index.html"
+            status = 200          Entre em Contato
         </CTAButton>
       </CTASection>
 
