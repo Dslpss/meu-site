@@ -1,4 +1,3 @@
-// Adicione um arquivo netlify.toml na raiz do projeto
 [[redirects]]
   from = "/*"
   to = "/index.html"
