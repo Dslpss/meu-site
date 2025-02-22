@@ -1,24 +1,59 @@
 import React from "react";
 import styled from "styled-components";
 
-const ContactContainer = styled.section`
-  padding: 20px;
-  color: #00ff00; /* Adicionado para garantir que o texto seja verde */
+const ContactContainer = styled.div`
+  padding: 2rem;
+  color: #00ff00;
 `;
 
-const Title = styled.h2`
-  color: ${(props) => props.theme.primary};
+const ContactForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto;
+`;
 
-  @media (max-width: 768px) {
-    font-size: 1.5em;
+const Input = styled.input`
+  padding: 0.5rem;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  border-radius: 4px;
+`;
+
+const TextArea = styled.textarea`
+  padding: 0.5rem;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  border-radius: 4px;
+  min-height: 150px;
+`;
+
+const Button = styled.button`
+  padding: 0.5rem 1rem;
+  background: #00ff00;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: #00dd00;
   }
 `;
 
 const Contact = () => {
   return (
     <ContactContainer>
-      <Title>Contato</Title>
-      <p>Informações de contato.</p>
+      <h2>Contato</h2>
+      <ContactForm>
+        <Input type="text" placeholder="Nome" />
+        <Input type="email" placeholder="Email" />
+        <TextArea placeholder="Mensagem" />
+        <Button type="submit">Enviar</Button>
+      </ContactForm>
     </ContactContainer>
   );
 };

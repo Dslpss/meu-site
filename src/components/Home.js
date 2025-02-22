@@ -44,6 +44,16 @@ const hoverEffect = keyframes`
   100% { transform: perspective(1000px) rotateX(10deg); }
 `;
 
+// Keyframes para o efeito de neon
+const neonEffect = keyframes`
+  from {
+    box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0;
+  }
+  to {
+    box-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+  }
+`;
+
 const HomeContainer = styled.section`
   padding: 60px 20px;
   text-align: center;
@@ -114,7 +124,7 @@ const Subtitle = styled.p`
 const SkillsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  gap: 50px; /* Aumentando o espaçamento */
   margin: 40px 0;
 `;
 
@@ -148,6 +158,7 @@ const SkillCard = styled(Skill)`
   border: 1px solid rgba(0, 255, 0, 0.3);
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: ${neonEffect} 1.5s alternate infinite; /* Adicionando a animação */
 
   &:hover {
     transform: translateY(-20px) rotateX(10deg) rotateY(10deg);
@@ -167,11 +178,11 @@ const CTAButton = styled(Link)`
   padding: 15px 30px;
   margin-top: 40px;
   background: ${(props) =>
-    props.secondary
+    props.$secondary
       ? "transparent"
       : "linear-gradient(45deg, #00ff00, #008000)"};
-  border: ${(props) => (props.secondary ? "2px solid #00ff00" : "none")};
-  color: #000;
+  border: ${(props) => (props.$secondary ? "2px solid #00ff00" : "none")};
+  color: ${(props) => (props.$secondary ? "#00ff00" : "#000")};
   text-decoration: none;
   font-weight: bold;
   border-radius: 25px;
@@ -358,12 +369,12 @@ const Home = () => {
     <HomeContainer id="home">
       <ProfileSection>
         <ProfileImage>
-          <img src="/path-to-your-image.jpg" alt="Dennis Emmanuel" />
+          <img src="/images/profile.jpg" alt="Dennis Emannuel" />
         </ProfileImage>
         <div>
           <Title>
-            <GlitchText data-text="< Dennis Emmanuel />">
-              {"< Dennis Emmanuel />"}
+            <GlitchText data-text="< Dennis Emannuel />">
+              {"< Dennis Emannuel />"}
             </GlitchText>
           </Title>
           <Subtitle>SELF-DEV: Transformando ideias em código</Subtitle>
@@ -402,7 +413,7 @@ const Home = () => {
 
       <CTASection>
         <CTAButton to="/projetos">Ver Projetos</CTAButton>
-        <CTAButton to="/contato" secondary>
+        <CTAButton to="/contato" $secondary>
           Entre em Contato
         </CTAButton>
       </CTASection>
