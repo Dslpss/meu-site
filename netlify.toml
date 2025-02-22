@@ -1,5 +1,5 @@
 [build]
-  command = "DISABLE_ESLINT_PLUGIN=true GENERATE_SOURCEMAP=false CI=false npm run build"
+  command = "npm run build"
   publish = "build"
 
 [[redirects]]
